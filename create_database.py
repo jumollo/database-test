@@ -4,12 +4,26 @@ import sqlite3
 conn = sqlite3.connect('clients.db')
 cursor = conn.cursor()
 
-# Criar tabela de clientes
+# Criar tabela de clientes pessoa física
 cursor.execute('''
-CREATE TABLE IF NOT EXISTS clients (
+CREATE TABLE IF NOT EXISTS clients_pf (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
-    email TEXT UNIQUE,
+    cpf TEXT UNIQUE NOT NULL,
+    email TEXT,
+    phone TEXT,
+    birth_date DATE
+)
+''')
+
+# Criar tabela de clientes pessoa jurídica
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS clients_pj (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    company_name TEXT NOT NULL,
+    cnpj TEXT UNIQUE NOT NULL,
+    contact_name TEXT,
+    email TEXT,
     phone TEXT
 )
 ''')
@@ -20,4 +34,4 @@ conn.commit()
 # Fechar conexão
 conn.close()
 
-print("Banco de dados e tabela criados com sucesso.")
+print("Banco de dados e tabelas criados com sucesso.")
