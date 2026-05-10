@@ -18,7 +18,7 @@
     "file": "prompt_agent.log"
   },
   "templates": {
-    "system_message": "You are a helpful AI assistant specializing in [categoria] tasks.",
-    "request_format": "Use the following prompt template:\n\n[prompt]\n\nUser input: [user_input]"
+    "system_message": "Você é um assistente de IA útil especializado em tarefas de [categoria].",
+    "request_format": "Use o seguinte template de prompt:\n\n[prompt]\n\nEntrada do usuário: [entrada_usuario]"
   }
 }

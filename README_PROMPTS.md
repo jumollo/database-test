@@ -6,9 +6,9 @@ Repositório dedicado à organização e armazenamento de prompts de IA.
 
 ```
 PromptdaJu/
-├── Coding/          # Prompts para desenvolvimento e programação
-├── Writing/         # Prompts para escrita e conteúdo
-├── General/         # Prompts gerais e diversos
+├── Programacao/          # Prompts para desenvolvimento e programação
+├── Escrita/         # Prompts para escrita e conteúdo
+├── Geral/         # Prompts gerais e diversos
 └── README.md        # Este arquivo
 ```
 
@@ -35,9 +35,9 @@ Breve descrição do que este prompt faz.
 
 ## Categorias Disponíveis
 
-- **Coding**: Prompts para codificação, debugging, refatoração
-- **Writing**: Prompts para escrita criativa, técnica, copywriting
-- **General**: Prompts gerais, brainstorming, pesquisa
+- **Programacao**: Prompts para codificação, debugging, refatoração
+- **Escrita**: Prompts para escrita criativa, técnica, copywriting
+- **Geral**: Prompts gerais, brainstorming, pesquisa
 
 ---
 

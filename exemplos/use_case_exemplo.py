@@ -53,7 +53,7 @@ def exemplo_3_customizar_prompt():
     
     # Carregar prompt
     prompt = agent.get_prompt("Coding", "gerar-funcao-javascript")
-    prompt_text = agent.extract_prompt_section(prompt)
+    texto_prompt = agent.extract_prompt_section(prompt)
     
     # Preparar variáveis
     variaveis = {
@@ -63,7 +63,7 @@ def exemplo_3_customizar_prompt():
     }
     
     # Preencher template
-    prompt_customizado = agent.fill_template(prompt_text, variaveis)
+    prompt_customizado = agent.fill_template(texto_prompt, variaveis)
     
     print("\n✅ Prompt customizado:")
     print("-" * 60)

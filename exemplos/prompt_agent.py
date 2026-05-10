@@ -55,7 +55,7 @@ class PromptAgent:
             category: Se fornecido, lista apenas prompts dessa categoria
             
         Returns:
-            Dict com categorias e seus prompts
+            Dicionário com categorias e seus prompts
         """
         if category:
             return {category: list(self.prompts.get(category, {}).keys())}
@@ -74,7 +74,7 @@ class PromptAgent:
             prompt_name: Nome do prompt
             
         Returns:
-            Conteúdo do prompt ou None se não encontrado
+            Conteúdo do prompt ou Nenhum se não encontrado
         """
         return self.prompts.get(category, {}).get(prompt_name)
     
@@ -105,11 +105,11 @@ class PromptAgent:
         Returns:
             Prompt preenchido
         """
-        result = prompt
-        for key, value in variables.items():
-            placeholder = f"[{key}]"
-            result = result.replace(placeholder, value)
-        return result
+        resultado = prompt
+        for chave, valor in variables.items():
+            placeholder = f"[{chave}]"
+            resultado = resultado.replace(placeholder, valor)
+        return resultado
     
     def display_prompt_info(self, category: str, prompt_name: str) -> None:
         """Exibe informações completas sobre um prompt."""
@@ -126,10 +126,10 @@ class PromptAgent:
     
     def get_prompt_text_only(self, category: str, prompt_name: str) -> Optional[str]:
         """Obtém apenas o texto do prompt, sem metadados."""
-        content = self.get_prompt(category, prompt_name)
-        if not content:
+        conteudo = self.get_prompt(category, prompt_name)
+        if not conteudo:
             return None
-        return self.extract_prompt_section(content)
+        return self.extract_prompt_section(conteudo)
 
 
 def main():
@@ -151,20 +151,20 @@ def main():
                 print(f"     • {prompt}")
         
         print("\n\nUso:")
-        print("  python prompt_agent.py --list")
-        print("  python prompt_agent.py --category Coding")
-        print("  python prompt_agent.py --show Coding gerar-funcao-javascript")
+        print("  python prompt_agent.py --listar")
+        print("  python prompt_agent.py --categoria Coding")
+        print("  python prompt_agent.py --exibir Coding gerar-funcao-javascript")
         return
     
     # Processa argumentos
-    if sys.argv[1] == "--list":
-        all_prompts = agent.list_prompts()
-        for cat, prompts in all_prompts.items():
+    if sys.argv[1] == "--listar":
+        todos_prompts = agent.list_prompts()
+        for cat, prompts in todos_prompts.items():
             print(f"\n{cat}:")
             for prompt in prompts:
                 print(f"  • {prompt}")
     
-    elif sys.argv[1] == "--category" and len(sys.argv) > 2:
+    elif sys.argv[1] == "--categoria" and len(sys.argv) > 2:
         cat = sys.argv[2]
         prompts = agent.list_prompts(cat)
         if cat in prompts:
@@ -174,10 +174,10 @@ def main():
         else:
             print(f"❌ Categoria não encontrada: {cat}")
     
-    elif sys.argv[1] == "--show" and len(sys.argv) > 3:
+    elif sys.argv[1] == "--exibir" and len(sys.argv) > 3:
         cat = sys.argv[2]
-        prompt_name = sys.argv[3]
-        agent.display_prompt_info(cat, prompt_name)
+        nome_prompt = sys.argv[3]
+        agent.display_prompt_info(cat, nome_prompt)
     
     else:
         print("❌ Comando não reconhecido")
